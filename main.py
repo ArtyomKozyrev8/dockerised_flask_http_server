@@ -1,24 +1,23 @@
 from libs import mylib
 from flask import Flask
-import logging
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello():
-    logging.info("/")
+    app.logger.info("/2332авыа")
     return "Hello World from Flask"
 
 
 @app.route("/x")
 def x():
-    logging.info("/x")
+    app.logger.info("/x23213213")
     return mylib.do_some_work()
 
 
 @app.route("/y")
 def y():
-    logging.info("/y")
+    app.logger.info("/y2131233")
     return mylib.do_another()
 
 
