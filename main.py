@@ -41,5 +41,21 @@ def y():
     return res
 
 
+@app.route("/z")
+def z():
+    app.logger.info("z dir")
+    req = requests.get(f"http://{ext_api_dom}:{ext_api_port}/zsup")
+    res = req.json()
+    if res:
+        res = res["result"]
+    return res
+
+
+@app.route("/z2")
+def z2():
+    app.logger.info("z2 dir")
+    raise Exception("z2 error in main server")
+
+
 if __name__ == '__main__':
     app.run("0.0.0.0", debug=False, port=12345)
