@@ -26,10 +26,10 @@ else:
 
 # Gunicorn config variables
 loglevel = use_loglevel
-workers = 2
+workers = 20
 bind = use_bind
 keepalive = 120
-errorlog = "-"
+errorlog = "/usr/src/logs"
 
 # For debugging and testing
 log_data = {
