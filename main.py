@@ -10,6 +10,8 @@ def hello():
     app.logger.error("root dir")
     req = requests.get(f"http://{ext_api_dom}:{ext_api_port}/")
     res = req.json()
+    if res:
+        res = res["result"]
     return res
 
 
@@ -18,6 +20,8 @@ def x():
     app.logger.info("x dir")
     req = requests.get(f"http://{ext_api_dom}:{ext_api_port}/xsup")
     res = req.json()
+    if res:
+        res = res["result"]
     return res
 
 
@@ -26,6 +30,8 @@ def y():
     app.logger.error("y dir")
     req = requests.get(f"http://{ext_api_dom}:{ext_api_port}/ysup")
     res = req.json()
+    if res:
+        res = res["result"]
     return res
 
 
