@@ -29,7 +29,7 @@ loglevel = use_loglevel
 workers = 20
 bind = use_bind
 keepalive = 120
-errorlog = "/usr/src/app/logs"
+errorlog = "/usr/src/app/logs/log.txt"
 
 # For debugging and testing
 log_data = {
