@@ -1,3 +1,3 @@
 import multiprocessing
 
-workers = multiprocessing.cpu_count() * 2
+workers = multiprocessing.cpu_count()
