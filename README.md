@@ -6,5 +6,5 @@ in the tested case we do not create port for support container to communicate wi
 outer world. 
 
 How to run:
- 
-docker run -d -p 9991:80 --name main_server --network artnet main_server
+
+docker run -d -p 9991:80 --name main_server --network artnet -e GUNICORN_CONF="/usr/src/app/gunicorn_conf.py" main_server
