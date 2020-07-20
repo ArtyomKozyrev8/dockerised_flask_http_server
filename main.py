@@ -1,6 +1,7 @@
 from flask import Flask
 import requests
 import logging
+import click
 
 from settings.ext_api import ext_api_dom, ext_api_port
 app = Flask(__name__)
@@ -9,6 +10,13 @@ if __name__ != '__main__':
     gunicorn_logger = logging.getLogger('gunicorn.error')
     app.logger.handlers = gunicorn_logger.handlers
     app.logger.setLevel(gunicorn_logger.level)
+
+
+@app.cli.command("create-user")
+@click.argument("name")
+def create_user(name):
+    print(f"Created user: {name}")
+    app.logger.info(f"Created user: {name}")
 
 
 @app.route("/")

@@ -7,7 +7,7 @@ outer world.
 
 How to run:
 
-docker run -v serv_log:/usr/src/app/logs -d -p 9991:80 --name serv --network artnet -e GUNICORN_CONF="/usr/src/app/gunicorn_conf.py" serv
+docker run -v serv_log:/usr/src/app/logs -d -p 9991:80 --name serv --network artnet -e GUNICORN_CONF="/usr/src/app/gunicorn_conf.py" IS_DOCKER="1" serv
 
 How to check logs:
 
