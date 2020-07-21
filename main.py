@@ -1,4 +1,4 @@
-from flask import Flask, current_app
+from flask import Flask, current_app, jsonify, render_template
 import requests
 import logging
 import click
@@ -65,6 +65,17 @@ def z():
 def z2():
     app.logger.info("z2 dir")
     raise Exception("z2 error in main server")
+
+
+@app.route("/v1/<id>")
+def v1(id_):
+    app.logger.info(f"v1 got id: {id_}")
+    return jsonify(res=f"v1 got id: {id_}")
+
+
+@app.route("/template")
+def template():
+    return render_template("some_template.html")
 
 
 if __name__ == '__main__':
