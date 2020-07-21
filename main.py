@@ -1,7 +1,8 @@
-from flask import Flask
+from flask import Flask, current_app
 import requests
 import logging
 import click
+
 
 from settings.ext_api import ext_api_dom, ext_api_port
 app = Flask(__name__)
@@ -16,7 +17,8 @@ if __name__ != '__main__':
 @click.argument("name")
 def create_user(name):
     print(f"Created user: {name}")
-    app.logger.info(f"Created user: {name}")
+    with app.app_context():
+        current_app.logger.info(f"Created user: {name}")
 
 
 @app.route("/")
